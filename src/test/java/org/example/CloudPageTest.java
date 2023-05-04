@@ -10,9 +10,9 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-public class Google_Price_Cal_Test {
+public class CloudPageTest {
     WebDriver driver;
-    Google_Price_Calculate_App obj;
+    CloudPage obj;
     String VM_Of_Class;
     String region;
     String S_S_D;
@@ -29,19 +29,19 @@ public class Google_Price_Cal_Test {
         {
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
-            obj = new Google_Price_Calculate_App(driver);
+            obj = new CloudPage(driver);
         }
         else if(browser.equalsIgnoreCase("firefox"))
         {
             WebDriverManager.firefoxdriver().setup();
             driver = new FirefoxDriver();
-            obj = new Google_Price_Calculate_App(driver);
+            obj = new CloudPage(driver);
         }
         driver.get(Url);
     }
 
     @Test
-    public void checkInformationInVmClassString() throws InterruptedException
+    public void VmString() throws InterruptedException
     {
 
 //        WebDriverManager.chromedriver().setup();
@@ -73,7 +73,7 @@ public class Google_Price_Cal_Test {
         Cost_of_USD = obj.Get_Cost().getText();
     }
     @Test
-    public void check_Data_is_correct()
+    public void CheckData()
     {
         Assert.assertEquals(VM_Of_Class,"Provisioning model: Regular");
         Assert.assertEquals(region,"Region: Frankfurt");
@@ -83,7 +83,7 @@ public class Google_Price_Cal_Test {
         Assert.assertEquals(Cost_of_USD, "Total Estimated Cost: USD 1,081.20 per 1 month");
     }
     @AfterClass
-    public void driverclode()
+    public void drivercode()
     {
         driver.close();
     }
