@@ -15,7 +15,7 @@
     </classes>
 </test>
 <test verbose="2" preserve-order="true" name="Test2">
-    <parameter name="browser" value="firefox"></parameter>
+    <parameter name="browser" value="edge"></parameter>
     <parameter name="Url" value="https://cloud.google.com/products/calculator"></parameter>
     <classes>
         <class name="org.example.CloudPageTest">
